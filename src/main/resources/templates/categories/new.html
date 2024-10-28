@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Category</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <header>
+        <img src="/images/yourimage.jpg" alt="Your Image"/>
+    </header>
+    <content>
+        <h1>Add New Category</h1>
+        <form th:action="@{/categories}" th:object="${category}" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" th:field="*{categoryname}" />
+            <label for="image">Image:</label>
+            <input type="text" id="image" th:field="*{images}" />
+            <label for="status">Status:</label>
+            <input type="number" id="status" th:field="*{status}" />
+            <button type="submit">Save</button>
+        </form>
+    </content>
+    <footer>
+        <p>22162017 Lê Trường Khoa</p>
+    </footer>
+</body>
+</html>

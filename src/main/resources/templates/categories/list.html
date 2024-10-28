@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Categories</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <header>
+        <img src="/images/yourimage.jpg" alt="Your Image"/>
+    </header>
+    <content>
+        <h1>Category List</h1>
+        <a href="/categories/new">Add New Category</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="category : ${categories}">
+                    <td th:text="${category.categoryid}">ID</td>
+                    <td th:text="${category.categoryname}">Name</td>
+                    <td th:text="${category.images}">Image</td>
+                    <td th:text="${category.status}">Status</td>
+                    <td>
+                        <a th:href="@{/categories/edit/{id}(id=${category.categoryid})}">Edit</a>
+                        <a th:href="@{/categories/delete/{id}(id=${category.categoryid})}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </content>
+    <footer>
+        <p>22162017 Lê Trường Khoa</p>
+    </footer>
+</body>
+</html>
